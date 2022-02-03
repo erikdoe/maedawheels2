@@ -146,22 +146,20 @@ class Renderer
     }
 
 
-    func beginUpdatingQuads()
-    {
-    }
-
     func updateQuad(_ corners: (Vector2, Vector2, Vector2, Vector2), textureId: Int, at index: Int)
     {
         // based on the assumption that Vector2 is layed out as two consecutive floats
-        let vertexData: [Vector2] = [ corners.0, corners.1, corners.2, corners.0, corners.2, corners.3 ]
         let arraySize = VALUES_PER_QUAD * MemoryLayout<Float>.size
-        let bufferPointer = vertexBuffer.contents() + arraySize * index
-        memcpy(bufferPointer, vertexData, arraySize)
+        let bufferPointer = UnsafeMutableRawPointer(vertexBuffer.contents() + arraySize * index)
+        let vertexData = bufferPointer.assumingMemoryBound(to: Vector2.self)
+        vertexData[0] = corners.0; vertexData[1] = corners.1; vertexData[2] = corners.2
+        vertexData[3] = corners.0; vertexData[4] = corners.2; vertexData[5] = corners.3
         textureIds[index] = textureId
     }
 
     func finishUpdatingQuads()
     {
+        // it's faster to invalidate the whole buffer here than to invalidate individually in updateQuad
         vertexBuffer.didModifyRange(0..<(numQuads * VALUES_PER_QUAD * MemoryLayout<Float>.size))
     }
 
@@ -189,14 +187,11 @@ class Renderer
 
         commandBuffer.present(drawable)
         commandBuffer.commit()
-#if false
-        // wait to get accurate statistics, can cause stutter when render time is close to 16ms
-        commandBuffer.waitUntilCompleted()
-#endif
     }
     
      
     func setTextures(_ encoder: MTLRenderCommandEncoder) {
+        let textureIds = self.textureIds
         var i = 0
         let n = numQuads
         while i < n {

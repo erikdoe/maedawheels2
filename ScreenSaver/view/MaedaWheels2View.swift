@@ -22,7 +22,6 @@ class MaedaWheels2View: MetalScreenSaverView
 {
     var scene: Scene!
     var renderer: Renderer!
-    var statistics: Statistics!
 
     override init?(frame: NSRect, isPreview: Bool)
     {
@@ -70,8 +69,6 @@ class MaedaWheels2View: MetalScreenSaverView
             renderer.setTexture(image: bitmap, at: i)
         }
 
-        statistics = Statistics()
-
         super.startAnimation()
     }
 
@@ -81,7 +78,6 @@ class MaedaWheels2View: MetalScreenSaverView
 
         renderer = nil
         scene = nil
-        statistics = nil
     }
 
     
@@ -95,9 +91,6 @@ class MaedaWheels2View: MetalScreenSaverView
     
     private func drawFrame()
     {
-        statistics.viewWillStartRenderingFrame()
-
-        renderer.beginUpdatingQuads()
         let sprites = scene.sprites
         let num = sprites.count
         var idx = 0
@@ -108,11 +101,9 @@ class MaedaWheels2View: MetalScreenSaverView
         }
         renderer.finishUpdatingQuads()
 
-         if let drawable = metalLayer.nextDrawable() { // TODO: can this really happen?
-             renderer.renderFrame(drawable: drawable)
-         }
-
-        statistics.viewDidFinishRenderingFrame()
+        if let drawable = metalLayer.nextDrawable() { // TODO: can this really happen?
+            renderer.renderFrame(drawable: drawable)
+        }
     }
     
 }

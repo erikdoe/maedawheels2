@@ -25,7 +25,6 @@ class Sprite
     let rotOffset: Double
     let rotSpeed: Double
 
-    var didUpdate: Bool
     var corners: (Vector2, Vector2, Vector2, Vector2)
 
     init(shapeId: Int, position: Vector2, size: Vector2, rotOffset: Double, rotSpeed: Double)
@@ -41,7 +40,6 @@ class Sprite
         self.rotOffset = rotOffset
         self.rotSpeed = rotSpeed
 
-        self.didUpdate = true
         self.corners = (Vector2(0), Vector2(0), Vector2(0), Vector2(0))
         updateCorners(rotation: 0)
     }
@@ -53,18 +51,14 @@ class Sprite
 
     func animate(t now: Double)
     {
-        didUpdate = false
         if rotSpeed > 0 {
             updateCorners(rotation: ((now - rotOffset) * rotSpeed))
-            didUpdate = true
         }
     }
 
     private func updateCorners(rotation a: Double)
     {
-        let sa = Scalar(sin(a))
-        let ca = Scalar(cos(a))
-        let r = Matrix2x2(ca, -sa, sa, ca)
+        let r = Matrix2x2(rotation: Scalar(a))
         corners = (
             pos + cVectors.0 * r,
             pos + cVectors.1 * r,
@@ -72,5 +66,5 @@ class Sprite
             pos + cVectors.3 * r
         )
     }
-    
+
 }
