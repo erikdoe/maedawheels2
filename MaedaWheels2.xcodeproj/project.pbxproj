@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0355EB8023C23F9C0006DA5A /* Colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 0355EB7F23C23F9C0006DA5A /* Colors.json */; };
 		03F526D7238ADC270068DC2C /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C5238ADC270068DC2C /* ConfigureSheetController.swift */; };
 		03F526D8238ADC270068DC2C /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F526C6238ADC270068DC2C /* ConfigureSheet.xib */; };
 		03F526D9238ADC270068DC2C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C7238ADC270068DC2C /* Configuration.swift */; };
-		03F526DA238ADC270068DC2C /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C9238ADC270068DC2C /* Statistics.swift */; };
 		03F526DB238ADC270068DC2C /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 03F526CA238ADC270068DC2C /* Shaders.metal */; };
 		03F526DC238ADC270068DC2C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526CB238ADC270068DC2C /* Util.swift */; };
 		03F526DE238ADC270068DC2C /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526CD238ADC270068DC2C /* NSColorExtensions.swift */; };
@@ -40,13 +38,11 @@
 /* Begin PBXFileReference section */
 		033CEF5523C3EA1000BC74C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		033CEF5623C3EA4100BC74C2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		0355EB7F23C23F9C0006DA5A /* Colors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Colors.json; sourceTree = "<group>"; };
 		03F526B7238ADC140068DC2C /* MaedaWheels2.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaedaWheels2.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F526BE238ADC140068DC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F526C5238ADC270068DC2C /* ConfigureSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
 		03F526C6238ADC270068DC2C /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
 		03F526C7238ADC270068DC2C /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		03F526C9238ADC270068DC2C /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		03F526CA238ADC270068DC2C /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		03F526CB238ADC270068DC2C /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		03F526CD238ADC270068DC2C /* NSColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtensions.swift; sourceTree = "<group>"; };
@@ -110,7 +106,6 @@
 				03F526C4238ADC270068DC2C /* configuration */,
 				03F526C8238ADC270068DC2C /* library */,
 				03F526BE238ADC140068DC2C /* Info.plist */,
-				0355EB7F23C23F9C0006DA5A /* Colors.json */,
 			);
 			path = ScreenSaver;
 			sourceTree = "<group>";
@@ -131,7 +126,6 @@
 				03F526CF238ADC270068DC2C /* MetalScreenSaverView.swift */,
 				03F526D1238ADC270068DC2C /* Renderer.swift */,
 				03F526CA238ADC270068DC2C /* Shaders.metal */,
-				03F526C9238ADC270068DC2C /* Statistics.swift */,
 				03F526CB238ADC270068DC2C /* Util.swift */,
 				03F526CE238ADC270068DC2C /* VectorMath.swift */,
 				03F526CD238ADC270068DC2C /* NSColorExtensions.swift */,
@@ -255,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F526D8238ADC270068DC2C /* ConfigureSheet.xib in Resources */,
-				0355EB8023C23F9C0006DA5A /* Colors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +297,6 @@
 				03F526E2238ADC270068DC2C /* Renderer.swift in Sources */,
 				03F526D7238ADC270068DC2C /* ConfigureSheetController.swift in Sources */,
 				03F526DE238ADC270068DC2C /* NSColorExtensions.swift in Sources */,
-				03F526DA238ADC270068DC2C /* Statistics.swift in Sources */,
 				03F526DB238ADC270068DC2C /* Shaders.metal in Sources */,
 				03F526E6238ADC270068DC2C /* Shape.swift in Sources */,
 				03F526E0238ADC270068DC2C /* MetalScreenSaverView.swift in Sources */,
