@@ -173,7 +173,7 @@ class Renderer
         descriptor.colorAttachments[0].texture?.label = "drawable"
         descriptor.colorAttachments[0].loadAction = .clear
         descriptor.colorAttachments[0].clearColor = backgroundColor
-        descriptor.colorAttachments[0].storeAction = .dontCare
+        descriptor.colorAttachments[0].storeAction = .store
 
         let encoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
         encoder.setRenderPipelineState(pipelineState)
