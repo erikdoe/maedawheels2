@@ -45,6 +45,7 @@ class MetalScreenSaverView : ScreenSaverView
             device = MTLCreateSystemDefaultDevice()
             message = "Connected to power, using default video device"
         } else {
+            message = "On battery, using video device"
             for d in MTLCopyAllDevices() {
                 device = d
                 if d.isLowPower && !d.isHeadless {
@@ -52,7 +53,6 @@ class MetalScreenSaverView : ScreenSaverView
                     break
                 }
             }
-            message = "On battery, using video device"
         }
         if let name = device?.name {
             NSLog("MetalScreenSaverView: \(message) \(name)")
