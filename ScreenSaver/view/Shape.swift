@@ -75,11 +75,11 @@ class Shape
         scaledFillPath.fill()
 
         if let strokePath = strokePath {
-            let shrinkFactor: CGFloat = CGFloat(Configuration.sharedInstance.lineWidth)
+            let shrinkFactor: CGFloat = 0.03
             let scaledStrokePath = strokePath.copy() as! NSBezierPath
             scaledStrokePath.transform(using: AffineTransform(scaleByX: size * (1 - shrinkFactor), byY: size * (1 - shrinkFactor)))
             scaledStrokePath.transform(using: AffineTransform(translationByX: size * shrinkFactor/2, byY: size * shrinkFactor/2))
-            scaledStrokePath.lineWidth = size * CGFloat(Configuration.sharedInstance.lineWidth)
+            scaledStrokePath.lineWidth = size * 0.03
             color.set()
             scaledStrokePath.stroke()
         }
