@@ -20,18 +20,20 @@ class ConfigureSheetController : NSObject
 {
     static var sharedInstance = ConfigureSheetController()
 
-    var configuration: Configuration!
+    public var configuration: Configuration!
     
     @IBOutlet var window: NSWindow!
     @IBOutlet var versionField: NSTextField!
-    @IBOutlet var sizeSlider: NSSlider!
-    @IBOutlet var palettePopup: NSPopUpButton!
+    @IBOutlet var wheelSlider: NSSlider!
+    @IBOutlet var wheelField: NSTextField!
+    @IBOutlet var rotationSlider: NSSlider!
+    @IBOutlet var rotationField: NSTextField!
+    @IBOutlet var speedSlider: NSSlider!
+    @IBOutlet var speedField: NSTextField!
 
     override init()
     {
         super.init()
-
-        configuration = Configuration.sharedInstance
 
         let myBundle = Bundle(for: ConfigureSheetController.self)
         myBundle.loadNibNamed("ConfigureSheet", owner: self, topLevelObjects: nil)
@@ -44,7 +46,7 @@ class ConfigureSheetController : NSObject
 
     @IBAction func openProjectPage(_ sender: AnyObject)
     {
-        NSWorkspace.shared.open(URL(string: "https://github.com/erikdoe/hexafliptile")!);
+        NSWorkspace.shared.open(URL(string: "https://github.com/erikdoe/maedawheels2")!);
     }
 
     @IBAction func closeConfigureSheet(_ sender: NSButton)
@@ -55,49 +57,28 @@ class ConfigureSheetController : NSObject
         window.sheetParent!.endSheet(window, returnCode: (sender.tag == 1) ? NSApplication.ModalResponse.OK : NSApplication.ModalResponse.cancel)
     }
 
+    @IBAction func updateValues(_ sender: AnyObject)
+    {
+        wheelField.stringValue = String(format:"%d×%d", wheelSlider.intValue, wheelSlider.intValue)
+        rotationField.stringValue = String(format:"%.0f%%", rotationSlider.floatValue * 100)
+        speedField.stringValue = String(format:"%.0f%%", speedSlider.floatValue * 100)
+    }
+
 
     func loadConfiguration()
     {
-        sizeSlider.integerValue = configuration.tiles
-    }
-
-    private func appendItem(for palette: [String], to popup: NSPopUpButton) {
-        palettePopup.addItem(withTitle: palette.description)
-        let item = palettePopup.item(at: palettePopup.numberOfItems - 1)!
-        item.image = makeImage(palette: palette)
-        item.representedObject = palette
+        wheelSlider.integerValue = configuration.wheelCount
+        rotationSlider.doubleValue = configuration.rotationOffset
+        speedSlider.doubleValue = configuration.speedOffset
+        updateValues(self)
     }
 
     private func saveConfiguration()
     {
-        configuration.tiles = sizeSlider.integerValue
-    }
-
-
-    func makeImage(palette: [String]) -> NSImage
-    {
-        let unit = CGFloat(16)
-        let size = NSSize(width: CGFloat(palette.count)*unit, height: unit)
-
-        let image = NSImage(size: size)
-        let imageRep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: Int(size.width), pixelsHigh: Int(size.height), bitsPerSample: 8,
-                                        samplesPerPixel: 4, hasAlpha: true, isPlanar: false, colorSpaceName: NSColorSpaceName.deviceRGB,
-                                        bytesPerRow: Int(size.width)*4, bitsPerPixel:32)!
-
-        NSGraphicsContext.saveGraphicsState()
-        NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: imageRep)
-
-        let path = NSBezierPath(rect: NSMakeRect(0, 0, unit, unit));
-        for colorString in palette {
-            NSColor(webcolor: colorString as NSString).set()
-            path.fill()
-            path.transform(using: AffineTransform(translationByX: unit, byY: 0))
-        }
-
-        NSGraphicsContext.restoreGraphicsState()
-
-        image.addRepresentation(imageRep)
-        return image
+        configuration.wheelCount = wheelSlider.integerValue
+        configuration.rotationOffset = rotationSlider.doubleValue
+        configuration.speedOffset = speedSlider.doubleValue
+        configuration.synchronize()
     }
 
 }

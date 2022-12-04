@@ -39,14 +39,15 @@ public class Scene
         // It's important that the shape loop is the outer loop because that results in the sprites being
         // ordered by their texture, which helps the renderer.
         for i in 0..<3 {
-            var rotOffset: Double = 0
+            var rotOffsetPercent: Double = 0
             for y in 0..<config.wheelCount {
                 for x in 0..<config.wheelCount {
                     // We're adding 1/2 grid size because the sprites are drawn with (0, 0) as the centre.
                     let p = lowerLeft + Vector2(x: Scalar(x), y: Scalar(y)) * gridSize + Vector2(gridSize/2)
-                    let sprite = Sprite(shapeId: i, position: p, size: Vector2(x: spriteSize, y: spriteSize), rotOffset: rotOffset, rotSpeed:config.rotSpeeds[i])
+                    let actualRotOffset = (rotOffsetPercent + (((y * config.wheelCount + x) % 2 == 0) ? 0 : 0.5)) * 2 * .pi
+                    let sprite = Sprite(shapeId: i, position: p, size: Vector2(x: spriteSize, y: spriteSize), rotOffset: actualRotOffset, rotSpeed:config.rotationSpeeds[i])
                     sprites.append(sprite)
-                    rotOffset += config.rotIncrement
+                    rotOffsetPercent += config.rotationOffset
                 }
             }
         }

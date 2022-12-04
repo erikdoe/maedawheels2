@@ -20,16 +20,19 @@ import ScreenSaver
 @objc(MaedaWheels2View)
 class MaedaWheels2View: MetalScreenSaverView
 {
+    var configuration: Configuration!
     var scene: Scene!
     var renderer: Renderer!
 
     override init?(frame: NSRect, isPreview: Bool)
     {
+        configuration = Configuration()
         super.init(frame: frame, isPreview: isPreview)
     }
 
     required init?(coder aDecoder: NSCoder)
     {
+        configuration = Configuration()
         super.init(coder: aDecoder)
     }
 
@@ -44,6 +47,7 @@ class MaedaWheels2View: MetalScreenSaverView
     override var configureSheet: NSWindow?
     {
         let controller = ConfigureSheetController.sharedInstance
+        controller.configuration = configuration
         controller.loadConfiguration()
         return controller.window
     }
@@ -53,7 +57,6 @@ class MaedaWheels2View: MetalScreenSaverView
     
     override func startAnimation()
     {
-        let configuration = Configuration.sharedInstance
         let divisor = max(bounds.size.width, bounds.size.height)
 
         let outputSize = Vector2(Scalar(bounds.size.width), Scalar(bounds.size.height)) / Scalar(divisor)
