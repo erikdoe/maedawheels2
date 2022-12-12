@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031A57332947DE7300A52423 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 031A57312947DE6100A52423 /* thumbnail.png */; };
+		031A57342947DE7700A52423 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 031A57322947DE6100A52423 /* thumbnail@2x.png */; };
 		03F26EC8293D2D2D001152FE /* BookPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F26EC7293D2D2D001152FE /* BookPhoto.png */; };
 		03F26ECA293EAB60001152FE /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F26EC9293EAB60001152FE /* GridView.swift */; };
 		03F526D7238ADC270068DC2C /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C5238ADC270068DC2C /* ConfigureSheetController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031A57312947DE6100A52423 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
+		031A57322947DE6100A52423 /* thumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail@2x.png"; sourceTree = "<group>"; };
 		033CEF5523C3EA1000BC74C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		033CEF5623C3EA4100BC74C2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		03F26EC7293D2D2D001152FE /* BookPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookPhoto.png; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				03F526C8238ADC270068DC2C /* library */,
 				03F526BE238ADC140068DC2C /* Info.plist */,
 				03F26EC7293D2D2D001152FE /* BookPhoto.png */,
+				031A57312947DE6100A52423 /* thumbnail.png */,
+				031A57322947DE6100A52423 /* thumbnail@2x.png */,
 			);
 			path = ScreenSaver;
 			sourceTree = "<group>";
@@ -255,7 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F526D8238ADC270068DC2C /* ConfigureSheet.xib in Resources */,
+				031A57342947DE7700A52423 /* thumbnail@2x.png in Resources */,
 				03F26EC8293D2D2D001152FE /* BookPhoto.png in Resources */,
+				031A57332947DE7300A52423 /* thumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +498,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X97H5M4ZW2;
+				DEVELOPMENT_TEAM = 28U2VZ7DF8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,7 +520,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X97H5M4ZW2;
+				DEVELOPMENT_TEAM = 28U2VZ7DF8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -21,13 +21,15 @@ class Configuration
     let baseSpeed: Double = 0.5     // time multiplier for middle disc
     let sceneScale: Scalar  = 0.875 // in percent of smaller screen dimension
     let spriteScale: Scalar = 0.80  // in percent of grid size
+    let isPreview: Bool
 
     private var defaults: UserDefaults
 
     var backgroundColor = NSColor.darkGray
 
-    init()
+    init(isPreview: Bool)
     {
+        self.isPreview = isPreview
         let identifier = Bundle(for: Configuration.self).bundleIdentifier!
         defaults = ScreenSaverDefaults(forModuleWithName: identifier)! as UserDefaults
         defaults.register(defaults: [
@@ -52,7 +54,7 @@ class Configuration
             defaults.set(newValue, forKey: "wheelCount")
         }
         get {
-            defaults.integer(forKey: "wheelCount")
+            isPreview ? 9 : defaults.integer(forKey: "wheelCount")
         }
     }
 

@@ -26,7 +26,7 @@ class MaedaWheels2View: MetalScreenSaverView
 
     override init?(frame: NSRect, isPreview: Bool)
     {
-        configuration = Configuration()
+        configuration = Configuration(isPreview: isPreview)
         super.init(frame: frame, isPreview: isPreview)
     }
 
