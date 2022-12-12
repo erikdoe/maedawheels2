@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03F26EC8293D2D2D001152FE /* BookPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F26EC7293D2D2D001152FE /* BookPhoto.png */; };
+		03F26ECA293EAB60001152FE /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F26EC9293EAB60001152FE /* GridView.swift */; };
 		03F526D7238ADC270068DC2C /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C5238ADC270068DC2C /* ConfigureSheetController.swift */; };
 		03F526D8238ADC270068DC2C /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F526C6238ADC270068DC2C /* ConfigureSheet.xib */; };
 		03F526D9238ADC270068DC2C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F526C7238ADC270068DC2C /* Configuration.swift */; };
@@ -40,6 +41,7 @@
 		033CEF5523C3EA1000BC74C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		033CEF5623C3EA4100BC74C2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		03F26EC7293D2D2D001152FE /* BookPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookPhoto.png; sourceTree = "<group>"; };
+		03F26EC9293EAB60001152FE /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		03F526B7238ADC140068DC2C /* MaedaWheels2.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaedaWheels2.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F526BE238ADC140068DC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F526C5238ADC270068DC2C /* ConfigureSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				03F526D3238ADC270068DC2C /* MaedaWheels2View.swift */,
+				03F26EC9293EAB60001152FE /* GridView.swift */,
 				03F526D4238ADC270068DC2C /* Scene.swift */,
 				03F526D5238ADC270068DC2C /* Sprite.swift */,
 				03F526D6238ADC270068DC2C /* Shape.swift */,
@@ -270,6 +273,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0355EB8123C2491B0006DA5A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -295,6 +299,7 @@
 				03F526E3238ADC270068DC2C /* MaedaWheels2View.swift in Sources */,
 				03F526DF238ADC270068DC2C /* VectorMath.swift in Sources */,
 				03F526D9238ADC270068DC2C /* Configuration.swift in Sources */,
+				03F26ECA293EAB60001152FE /* GridView.swift in Sources */,
 				03F526E5238ADC270068DC2C /* Sprite.swift in Sources */,
 				03F526E4238ADC270068DC2C /* Scene.swift in Sources */,
 				03F526DC238ADC270068DC2C /* Util.swift in Sources */,
@@ -455,7 +460,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X97H5M4ZW2;
+				DEVELOPMENT_TEAM = 28U2VZ7DF8;
 				INFOPLIST_FILE = ScreenSaver/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.maedawheels2;
@@ -469,7 +474,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X97H5M4ZW2;
+				DEVELOPMENT_TEAM = 28U2VZ7DF8;
 				INFOPLIST_FILE = ScreenSaver/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.maedawheels2;
@@ -492,7 +497,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.hexafliptile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.maedawheels2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -514,7 +519,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.hexafliptile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doernenburg.maedawheels2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

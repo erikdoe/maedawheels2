@@ -32,8 +32,7 @@ class MaedaWheels2View: MetalScreenSaverView
 
     required init?(coder aDecoder: NSCoder)
     {
-        configuration = Configuration()
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
 
@@ -72,13 +71,15 @@ class MaedaWheels2View: MetalScreenSaverView
             renderer.setTexture(image: bitmap, at: i)
         }
 
+        addSubview(GridView(configuration: configuration, frame: bounds))
+
         super.startAnimation()
     }
 
     override func stopAnimation()
     {
         super.stopAnimation()
-
+        subviews[0].removeFromSuperview()
         renderer = nil
         scene = nil
     }
@@ -107,6 +108,7 @@ class MaedaWheels2View: MetalScreenSaverView
         if let drawable = metalLayer.nextDrawable() { // TODO: can this really happen?
             renderer.renderFrame(drawable: drawable)
         }
+
     }
     
 }
