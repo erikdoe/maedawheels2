@@ -31,8 +31,8 @@ class Configuration
         let identifier = Bundle(for: Configuration.self).bundleIdentifier!
         defaults = ScreenSaverDefaults(forModuleWithName: identifier)! as UserDefaults
         defaults.register(defaults: [
-            "wheelCount": 19,
-            "rotationOffset": 0.01,
+            "wheelCount": 17,
+            "rotationOffset": 0.015,
             "speedOffset": 0.2
             ])
         synchronize()
@@ -60,10 +60,10 @@ class Configuration
     var rotationOffset: Double
     {
         set {
-            defaults.set(newValue, forKey: "rotOffset")
+            defaults.set(newValue, forKey: "rotationOffset")
         }
         get {
-            defaults.double(forKey: "rotOffset")
+            defaults.double(forKey: "rotationOffset")
         }
     }
 
